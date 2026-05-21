@@ -1,0 +1,18 @@
+# Database configuration
+core/config.php
+
+# Local server files
+.htaccess
+error_log
+php_error.log
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Temporary files
+temp/
+tmp/
+*.tmp
+*.bak
+*.swp
