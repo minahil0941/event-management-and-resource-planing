@@ -18,13 +18,18 @@ Developed with a focus on **Aesthetics**, **Security**, and **Scalability**, Ven
 ---
 
 ## 📸 Screenshots Showcase
-<div align="center">
-  <img src="assets/img/dashboard_main.png" width="45%" alt="Main Dashboard">
-  <img src="assets/img/resource_catalog.png" width="45%" alt="Resource Catalog">
-  <br>
-  <img src="assets/img/analytics_dashboard.png" width="45%" alt="Admin Analytics">
-  <img src="assets/img/qr_ticket.png" width="45%" alt="Digital Ticket">
-</div>
+
+![Main Dashboard](./assets/img/dashboard_main.png)
+*Main Dashboard*
+
+![Resource Catalog](./assets/img/resource_catalog.png)
+*Resource Catalog*
+
+![Admin Analytics](./assets/img/analytics_dashboard.png)
+*Admin Analytics*
+
+![Digital Ticket](./assets/img/qr_ticket.png)
+*Digital Ticket*
 
 ---
 
@@ -70,12 +75,28 @@ project1/
 ---
 
 ## 🚀 How to Use
-1. **Installation**: Clone the repo and import `sql/project_db.sql` into your MySQL database.
-2. **Setup**: Update `core/config.php` with your database credentials.
+1. **Installation**: Clone the repo and import `project_db.sql` (found in the main folder) into your MySQL database.
+2. **Setup**: The `core/config.php` file is already included. Make sure your local MySQL uses `root` and `123456` as the password, or update `config.php` accordingly.
 3. **Onboarding**: Register as a Student or Faculty. *Note: Accounts require Admin activation.*
 4. **Booking**: Browse the **Resource Catalog**, check availability, and submit a request.
 5. **Payment**: For paid resources, upload your receipt screenshot after Admin approval.
 6. **Entry**: Download your **QR Ticket** from the "My Bookings" section.
+
+---
+
+## 🔑 Test Credentials (For Instructor Evaluation)
+To quickly evaluate the system without registering new accounts, use these active test users:
+
+**Admin Account:**
+- **Email:** admin@admin.com
+- **Password:** 1234
+
+**Active Student / User Accounts:**
+- **Name:** Umair | **Email:** umair@gmail.com | **Password:** 123
+- **Name:** Irsha | **Email:** irsha@gmail.com | **Password:** 123
+- **Name:** Eman | **Email:** eman@gmail.com | **Password:** 123
+- **Name:** Atif | **Email:** atif@gmail.com | **Password:** 123
+
 
 ---
 

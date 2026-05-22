@@ -1,5 +1,5 @@
 # Database configuration
-core/config.php
+# (config.php is now tracked so the instructor can use it)
 
 # Local server files
 .htaccess
