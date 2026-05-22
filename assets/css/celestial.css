@@ -1,0 +1,158 @@
+/* Ventixe Celestial Background: High-Visibility Vibrant Indigo (Reports Page Theme) */
+
+:root {
+    --star-base: rgba(79, 70, 229, 0.6); /* Indigo #4f46e5 from Reports */
+    --star-bright: rgba(79, 70, 229, 0.9);
+    --nebula-core: rgba(79, 70, 229, 0.12);
+    --nebula-accent: rgba(124, 58, 237, 0.1);
+}
+
+.celestial-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+    background: transparent;
+    pointer-events: none;
+}
+
+/* Vibrant Nebula Effect with Smooth Rotation */
+.celestial-bg::before {
+    content: '';
+    position: absolute;
+    width: 250%;
+    height: 250%;
+    top: -75%;
+    left: -75%;
+    background: 
+        radial-gradient(circle at 30% 30%, var(--nebula-core) 0%, transparent 50%),
+        radial-gradient(circle at 70% 70%, var(--nebula-accent) 0%, transparent 50%),
+        radial-gradient(circle at 50% 50%, rgba(79, 70, 229, 0.05) 0%, transparent 70%);
+    filter: blur(100px);
+    opacity: 0.9;
+    animation: nebula-swirl 40s infinite linear;
+}
+
+@keyframes nebula-swirl {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* Parallax Layers (Ready for JS interaction) */
+.stars-layer {
+    position: absolute;
+    top: -200px;
+    left: -200px;
+    right: -200px;
+    bottom: -200px;
+    width: calc(100% + 400px);
+    height: calc(100% + 400px);
+    display: block;
+    transition: transform 0.1s ease-out; /* Smooth JS parallax */
+}
+
+/* Layer 1: Distant Indigo Stars */
+.stars-layer-1 {
+    background-image: 
+        radial-gradient(1.5px 1.5px at 15% 15%, var(--star-base), transparent),
+        radial-gradient(1.5px 1.5px at 35% 55%, var(--star-base), transparent),
+        radial-gradient(1.5px 1.5px at 55% 85%, var(--star-base), transparent),
+        radial-gradient(1.5px 1.5px at 75% 25%, var(--star-base), transparent),
+        radial-gradient(1.5px 1.5px at 90% 65%, var(--star-base), transparent);
+    background-size: 550px 550px;
+    opacity: 0.6;
+    animation: stars-move 180s linear infinite;
+}
+
+/* Layer 2: Twinkling Mid-range Stars */
+.stars-layer-2 {
+    background-image: 
+        radial-gradient(2.5px 2.5px at 25% 35%, var(--star-base), transparent),
+        radial-gradient(2.5px 2.5px at 55% 75%, var(--star-base), transparent),
+        radial-gradient(2.5px 2.5px at 85% 45%, var(--star-base), transparent),
+        radial-gradient(3.5px 3.5px at 10% 85%, var(--star-bright), transparent);
+    background-size: 400px 400px;
+    opacity: 0.8;
+    animation: stars-move 120s linear infinite, twinkle 4s infinite ease-in-out;
+}
+
+/* Layer 3: Prominent Bright Stars */
+.stars-layer-3 {
+    background-image: 
+        radial-gradient(4px 4px at 10% 55%, var(--star-bright), transparent),
+        radial-gradient(4px 4px at 45% 95%, var(--star-bright), transparent),
+        radial-gradient(4px 4px at 80% 20%, var(--star-bright), transparent);
+    background-size: 300px 300px;
+    opacity: 0.9;
+    animation: stars-move 80s linear infinite, twinkle 6s infinite ease-in-out alternate;
+}
+
+@keyframes stars-move {
+    from { transform: translateY(0); }
+    to { transform: translateY(-1000px); }
+}
+
+@keyframes twinkle {
+    0%, 100% { opacity: 0.5; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.15); }
+}
+
+/* Indigo Shooting Stars */
+.shooting-star {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 2.5px;
+    height: 2.5px;
+    background: linear-gradient(-45deg, var(--star-bright), rgba(255,255,255,0));
+    border-radius: 999px;
+    filter: drop-shadow(0 0 8px var(--star-bright));
+    animation: tail 4.5s ease-in-out infinite, shooting 4.5s ease-in-out infinite;
+    opacity: 0;
+}
+
+.shooting-star::before {
+    content: '';
+    position: absolute;
+    top: calc(50% - 1.5px);
+    right: 0;
+    height: 3px;
+    background: linear-gradient(-45deg, rgba(0,0,255,0), var(--star-bright), rgba(0,0,255,0));
+    transform: translateX(50%) rotateZ(45deg);
+    border-radius: 100%;
+}
+
+@keyframes tail {
+    0% { width: 0; opacity: 0; }
+    25% { width: 120px; opacity: 1; }
+    100% { width: 0; opacity: 0; }
+}
+
+@keyframes shooting {
+    0% { transform: rotate(-30deg) translateX(0); }
+    100% { transform: rotate(-30deg) translateX(900px); }
+}
+
+/* Body Styling for Dashboard and External Pages */
+body.celestial-active {
+    background-color: #f8fafc !important; 
+}
+
+/* SMART SELECTOR: Fix for the Ticker/Slider issue. 
+   Only applying glass to cards that don't have explicit background utility classes. */
+body.celestial-active .ventixe-card:not([class*="bg-"]):not([class*="stat-"]), 
+body.celestial-active .card:not([class*="bg-"]):not([class*="stat-"]) {
+    background: rgba(255, 255, 255, 0.85) !important;
+    backdrop-filter: blur(12px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.5) !important;
+    box-shadow: 0 8px 32px 0 rgba(79, 70, 229, 0.08) !important;
+}
+
+/* Dark Mode adjustment - Stay beautiful */
+[data-bs-theme="dark"] .celestial-bg {
+    background: radial-gradient(circle at 50% 50%, #0f172a 0%, #020617 100%);
+    opacity: 1;
+}
